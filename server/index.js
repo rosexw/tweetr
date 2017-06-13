@@ -27,6 +27,9 @@ const DataHelpers = require("./lib/data-helpers.js")(db);
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
+db.connect((dbInstance) => {
+  app.use('/tweets', tweetsApi(dbInstance));
+});
 app.use("/tweets", tweetsRoutes);
 
 app.listen(PORT, () => {
