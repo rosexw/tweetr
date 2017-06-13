@@ -28,6 +28,8 @@ body {
  main {
    width: 450px;
    display: block;
-   background-color: white;
    margin: 140px auto;
+   border-radius: 2%;
+   padding: 0px 10px;
+   background-color: #94b8b8;
  }
