@@ -1,0 +1,41 @@
+
+
+.tweets {
+  background-color: #FFF;
+  border-radius: 5px;
+  border: 1px solid #696969;
+  margin: 10%;
+}
+
+.tweets .icons {
+  transition: opacity 0.5s;
+  opacity: 0;
+  float: right;
+}
+
+.tweets:hover .icons {
+  opacity: 1.0;
+}
+
+.tweets header {
+  background-color: #D3D3D3;
+  text-align: left;
+  border-top-right-radius: 2%;
+  border-top-left-radius: 2%;
+  margin-left: 2px;
+  padding: 10px;
+}
+
+.tweets section {
+  padding-left: 10px;
+}
+
+.tweets footer {
+  line-height: 15px;
+  border-top: 0.5px solid #D3D3D3;
+  padding: 10px;
+}
+
+.date {
+  font-size: 14px;
+}
