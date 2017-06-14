@@ -24,3 +24,21 @@ nav {
   font-size: 40px;
   line-height: 80px;
 }
+
+#nav-bar .compose {
+  float: right;
+  margin: 10px auto auto 10px;
+  height: 60px;
+  width: 110px;
+  color: #000;
+  opacity: 0.5;
+  border: 1px solid #000;
+  border-radius: 5%;
+  line-height: 20px;
+}
+
+#nav-bar .compose:hover {
+  color: #000;
+  opacity: 1;
+  background-color: #FFF;
+}

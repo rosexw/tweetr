@@ -28,6 +28,7 @@ const createTweetElement = (tweetData) => {
 };
 
 function renderTweets(tweets) {
+  $('#tweets-container').children().remove();
   tweets.forEach (function (tweet) {
     var $tweet = createTweetElement(tweet);
     $('#tweets-container').append($tweet);
@@ -46,6 +47,11 @@ function loadTweets () {
 }
 
 $(document).ready(() => {
+  $('#nav-bar .compose').click(function() {
+    $('.new-tweet').slideToggle();
+    console.log('test');
+  })
+
   $('.new-tweet form').on('submit', function (event) {
     let array = $(this).serializeArray();
 
@@ -58,12 +64,29 @@ $(document).ready(() => {
       return obj;
     }
     let data = objectifyForm(array);
-    console.log(data);
+
     event.preventDefault();
-    $.post({
-      url: '/tweets',
-      data: data
-    });
+    //if textarea value empty -- warning type text
+    //else if not over 140 char, then -- warning reduce text
+    //else $.post
+
+    if (!$(".new-tweet textarea").val().length) {
+      alert("Please enter more characters");
+    } else if ($(".new-tweet textarea").val().length > 140) {
+      alert("Please reduce text to 140 characters or less.");
+    } else {
+      $.post({
+        url: '/tweets',
+        data: data
+      })
+      .then(loadTweets);
+
+      $(".new-tweet textarea").val("");
+//$('#tweets-container')
+//$('#tweets-container').children();
+//$('#tweets-container').children().remove();
+
+    }
 
     // $.ajax({
     //   url: "/tweets",
