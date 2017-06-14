@@ -50,6 +50,7 @@
    }
  ];
 
+//when have time: work on converting created_at from date/time to days/hours/minutes ago/now
 const createTweetElement = (tweetData) => {
   const date = new Date(tweetData.created_at);
   return $(`<article class = "tweets">
