@@ -81,5 +81,30 @@ function renderTweets(tweets) {
 }
 
 $(document).ready(() => {
+  $('.new-tweet form').on('submit', function (event) {
+    let array = $(this).serializeArray();
+
+    function objectifyForm(formArray) {
+      var obj = {};
+
+      for (var i = 0; i < formArray.length; i++){
+        obj[formArray[i]['name']] = formArray[i]['value'];
+      }
+      return obj;
+    }
+    let data = objectifyForm(array);
+    console.log(data);
+    event.preventDefault();
+    $.post({
+      url: '/tweets',
+      data: data
+    });
+
+    // $.ajax({
+    //   url: "/tweets",
+    //   method: "POST",
+    //   data: $(this).serialize()
+    // })
+  });
   renderTweets(data);
 });
