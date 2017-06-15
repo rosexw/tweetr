@@ -6,7 +6,10 @@
 
 //when have time: work on converting created_at from date/time to days/hours/minutes ago/now
 const createTweetElement = (tweetData) => {
-  const date = new Date(tweetData.created_at);
+  const created = new Date(tweetData.created_at);
+  const today = Date.now();
+  const timeDiff = Math.abs(today - created.getTime());
+  const diffHours = Math.ceil(timeDiff / (1000 * 3600));
   return $(`<article class = "tweets">
     <header>
       <img class="avatar" src="${tweetData.user.avatars.small}" alt="Twitter picture" height="42" width="42">
@@ -17,7 +20,7 @@ const createTweetElement = (tweetData) => {
       <p> ${tweetData.content.text} </p>
     </section>
     <footer>
-      <span class="date">${date.toLocaleString()}</span>
+      <span class="date">${diffHours} hours ago </span>
       <span class="icons">
         <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
         <i class="fa fa-retweet fa-lg" aria-hidden="true"></i>
@@ -47,9 +50,10 @@ function loadTweets () {
 }
 
 $(document).ready(() => {
+  $('.new-tweet').hide();
   $('#nav-bar .compose').click(function() {
     $('.new-tweet').slideToggle();
-    console.log('test');
+    $('.tweettext').focus();
   })
 
   $('.new-tweet form').on('submit', function (event) {
@@ -82,6 +86,7 @@ $(document).ready(() => {
       .then(loadTweets);
 
       $(".new-tweet textarea").val("");
+      $(".counter").html(140);
 //$('#tweets-container')
 //$('#tweets-container').children();
 //$('#tweets-container').children().remove();

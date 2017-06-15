@@ -1,10 +1,8 @@
 .new-tweet {
-  margin-left: 2em;
-  margin-right: 2em;
+  margin: 2em;
   padding: 2% 10%;
   background-color: #eee;
   border: 1px solid #696969;
-  margin: 10%;
   border-radius: 5px;
 }
 
