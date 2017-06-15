@@ -30,7 +30,7 @@ nav {
   margin: 10px auto auto 10px;
   height: 60px;
   width: 110px;
-  color: #000;
+  color: #1F7698;
   opacity: 0.5;
   border: 1px solid #000;
   border-radius: 5%;
@@ -40,5 +40,5 @@ nav {
 #nav-bar .compose:hover {
   color: #000;
   opacity: 1;
-  background-color: #FFF;
+  background-color: white;
 }

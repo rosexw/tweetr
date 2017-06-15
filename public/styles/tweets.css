@@ -17,6 +17,18 @@
   opacity: 1.0;
 }
 
+.tweets header .author {
+  font-weight:400;
+  font-size: 20px;
+}
+
+.tweets header .username {
+  float: right;
+  vertical-align: bottom;
+  font-weight: normal;
+  font-size: 14px;
+}
+
 .tweets header {
   background-color: #D3D3D3;
   text-align: left;

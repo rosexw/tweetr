@@ -31,5 +31,6 @@ body {
    margin: 140px auto;
    border-radius: 2%;
    padding: 10px 10px;
-   background-color: #fff;
+   background-color: white;
+   position: relative;
  }
