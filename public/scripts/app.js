@@ -4,8 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//when have time: work on converting created_at from date/time to days/hours/minutes ago/now
 const createTweetElement = (tweetData) => {
+  //this converts the date to how many hours ago the tweet was made. It rounds the number of hours up.
   const created = new Date(tweetData.created_at);
   const today = Date.now();
   const timeDiff = Math.abs(today - created.getTime());
@@ -57,6 +57,7 @@ $(document).ready(() => {
   })
 
   $('.new-tweet form').on('submit', function (event) {
+    //"this" is form info
     let array = $(this).serializeArray();
 
     function objectifyForm(formArray) {
@@ -70,9 +71,6 @@ $(document).ready(() => {
     let data = objectifyForm(array);
 
     event.preventDefault();
-    //if textarea value empty -- warning type text
-    //else if not over 140 char, then -- warning reduce text
-    //else $.post
 
     if (!$(".new-tweet textarea").val().length) {
       alert("Please enter more characters");
@@ -87,18 +85,9 @@ $(document).ready(() => {
 
       $(".new-tweet textarea").val("");
       $(".counter").html(140);
-//$('#tweets-container')
-//$('#tweets-container').children();
-//$('#tweets-container').children().remove();
 
     }
 
-    // $.ajax({
-    //   url: "/tweets",
-    //   method: "POST",
-    //   data: $(this).serialize()
-    // })
   });
-  // renderTweets(data);
   loadTweets();
 });
