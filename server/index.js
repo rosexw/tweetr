@@ -32,3 +32,21 @@ const db = MongoClient.connect(MONGODB_URI, (err, db) => {
 app.listen(PORT, () => {
   console.log("Tweetr app listening on port " + PORT);
 });
+
+// close connection to Mongo when the connection is terminated by user
+function gracefulShutdown() {
+  console.log("\nShutting down gracefully...");
+  try {
+    db.close();
+  }
+  catch (err) {
+    throw err;
+  }
+  finally {
+    console.log("I'll be back.");
+    process.exit();
+  }
+}
+
+process.on('SIGTERM', gracefulShutdown); // listen for TERM signal .e.g. kill
+process.on('SIGINT', gracefulShutdown);  // listen for INT signal e.g. Ctrl-C
