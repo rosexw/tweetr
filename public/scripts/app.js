@@ -5,11 +5,12 @@
  */
 
 const createTweetElement = (tweetData) => {
-  //this converts the date to how many hours ago the tweet was made. It rounds the number of hours up.
+  //this converts the date to how many hours ago the tweet was made. It rounds down the number of hours.
   const created = new Date(tweetData.created_at);
   const today = Date.now();
   const timeDiff = Math.abs(today - created.getTime());
   const diffHours = Math.ceil(timeDiff / (1000 * 3600));
+
   return $(`<article class = "tweets">
     <header>
       <img class="avatar" src="${tweetData.user.avatars.small}" alt="Twitter picture" height="42" width="42">
@@ -20,7 +21,7 @@ const createTweetElement = (tweetData) => {
       <p> ${tweetData.content.text} </p>
     </section>
     <footer>
-      <span class="date">${diffHours} hours ago </span>
+      <span class="date">${diffHours} hours ago  </span>
       <span class="icons">
         <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
         <i class="fa fa-retweet fa-lg" aria-hidden="true"></i>
@@ -39,11 +40,11 @@ function renderTweets(tweets) {
 }
 
 function loadTweets () {
-  //GET request to /tweets
+  $('#mySpinner').addClass('spinner');
   $.get({
     url: '/tweets',
-    // success: response renderTweets()
     success: (data) => {
+      $('#mySpinner').removeClass('spinner');
       renderTweets(data.reverse());
     }
   })
@@ -79,7 +80,7 @@ $(document).ready(() => {
     } else {
       $.post({
         url: '/tweets',
-        data: data
+        data: data,
       })
       .then(loadTweets);
 
