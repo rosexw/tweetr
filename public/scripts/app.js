@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 const createTweetElement = (tweetData) => {
   //this converts the date to how many hours ago the tweet was made. It rounds down the number of hours.
   const created = new Date(tweetData.created_at);
@@ -42,6 +36,7 @@ function renderTweets(tweets) {
 }
 
 function loadTweets () {
+  //A spinner shows when the tweets are loading on the page. CSS details are inside tweets.css stylesheet.
   $('#mySpinner').addClass('spinner');
   $.get({
     url: '/tweets',
@@ -86,6 +81,7 @@ $(document).ready(() => {
       })
       .then(loadTweets);
 
+      //after the new tweet is submitted, the text area is cleared and the counter is reset to 140.
       $(".new-tweet textarea").val("");
       $(".counter").html(140);
 

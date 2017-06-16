@@ -11,10 +11,6 @@ module.exports = function makeDataHelpers(db) {
         }
         callback(null, true);
       });
-      // simulateDelay(() => {
-      //   db.tweets.push(newTweet);
-      //   callback(null, true);
-      // });
     },
 
     // Get all tweets in `db`, sorted by newest first

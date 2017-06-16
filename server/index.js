@@ -24,16 +24,11 @@ const db = MongoClient.connect(MONGODB_URI, (err, db) => {
   app.use("/tweets", tweetsRoutes);
 })
 
-// db.connect((dbInstance) => {
-//   app.use('/tweets', tweetsApi(dbInstance));
-// });
-
-
 app.listen(PORT, () => {
   console.log("Tweetr app listening on port " + PORT);
 });
 
-// close connection to Mongo when the connection is terminated by user
+// close connection to Mongo when the connection is terminated by user, Fabio's lecture W3D4.
 function gracefulShutdown() {
   console.log("\nShutting down gracefully...");
   try {
