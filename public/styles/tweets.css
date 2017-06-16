@@ -20,6 +20,7 @@
 .tweets header .author {
   font-weight:400;
   font-size: 20px;
+  margin-left: 10px;
 }
 
 .tweets header .username {
@@ -29,6 +30,11 @@
   font-size: 14px;
 }
 
+.tweets header .header-left {
+  display: flex;
+  align-items: center;
+}
+
 .tweets header {
   background-color: #D3D3D3;
   text-align: left;
@@ -36,6 +42,9 @@
   border-top-left-radius: 2%;
   margin-left: 2px;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tweets section {

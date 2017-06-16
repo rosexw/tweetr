@@ -13,9 +13,11 @@ const createTweetElement = (tweetData) => {
 
   return $(`<article class = "tweets">
     <header>
-      <img class="avatar" src="${tweetData.user.avatars.small}" alt="Twitter picture" height="42" width="42">
-      <span class="author">${tweetData.user.name}</span>
-      <span class="username">: ${tweetData.user.handle}</span>
+      <div class="header-left">
+        <img class="avatar" src="${tweetData.user.avatars.small}" alt="Twitter picture" height="42" width="42">
+        <span class="author">${tweetData.user.name}</span>
+      </div>
+      <span class="username">${tweetData.user.handle}</span>
     </header>
     <section>
       <p> ${tweetData.content.text} </p>
