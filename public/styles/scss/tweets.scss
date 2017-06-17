@@ -4,7 +4,10 @@
   background-color: #FFF;
   border-radius: 5px;
   border: 1px solid #696969;
-  margin: 2em;
+  overflow: hidden;
+  @media (min-width: $sm-width) {
+    margin: 2em;
+  }
 
   .icons {
     transition: opacity 0.5s;
@@ -17,13 +20,9 @@
   }
 
 header {
-  //background-color: #D3D3D3;
   background-color: $primary-color;
   color: #F0F8FF;
   text-align: left;
-  border-top-right-radius: 2%;
-  border-top-left-radius: 2%;
-  margin-left: 2px;
   padding: 10px;
   display: flex;
   justify-content: space-between;

@@ -21,13 +21,16 @@ body {
   justify-content: center; }
 
 main {
-  width: 43.94531%;
+  width: 100%;
+  max-width: 450px;
   display: block;
   margin: 140px auto;
-  border-radius: 2%;
-  padding: 10px 10px;
+  border-radius: 2px;
   background-color: white;
   position: relative; }
+  @media (min-width: 600px) {
+    main {
+      padding: 10px 10px; } }
 
 nav {
   overflow: hidden;
@@ -92,7 +95,10 @@ nav {
   background-color: #FFF;
   border-radius: 5px;
   border: 1px solid #696969;
-  margin: 2em; }
+  overflow: hidden; }
+  @media (min-width: 600px) {
+    .tweets {
+      margin: 2em; } }
   .tweets .icons {
     transition: opacity 0.5s;
     opacity: 0;
@@ -103,9 +109,6 @@ nav {
     background-color: #00a087;
     color: #F0F8FF;
     text-align: left;
-    border-top-right-radius: 2%;
-    border-top-left-radius: 2%;
-    margin-left: 2px;
     padding: 10px;
     display: flex;
     justify-content: space-between;

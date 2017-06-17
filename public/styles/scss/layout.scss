@@ -25,11 +25,14 @@ body {
 }
 
  main {
-   width: 450px / 1024px *100%;
+   width: 100%;
+   max-width: 450px;
    display: block;
    margin: 140px auto;
-   border-radius: 2%;
-   padding: 10px 10px;
+   border-radius: 2px;
+   @media (min-width: $sm-width) {
+     padding: 10px 10px;
+   }
    background-color: white;
    position: relative;
  }
