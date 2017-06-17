@@ -135,6 +135,12 @@ nav {
 .date {
   font-size: 14px; }
 
+.like-icon.liked {
+  color: red; }
+
+.like-icon {
+  transition: color 0.1s; }
+
 @keyframes spinner {
   to {
     transform: rotate(360deg); } }

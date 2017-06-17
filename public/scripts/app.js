@@ -21,7 +21,7 @@ const createTweetElement = (tweetData) => {
       <span class="icons">
         <i name="flag" class="fa fa-flag fa-lg" aria-hidden="true"></i>
         <i name="retweet" class="fa fa-retweet fa-lg" aria-hidden="true"></i>
-        <i name="heart" class="fa fa-heart fa-lg" aria-hidden="true"></i>
+        <i id="like-${tweetData._id}" class="fa fa-heart like-icon fa-lg" aria-hidden="true"></i>
       </span>
     </footer>
   </article>`);
@@ -30,8 +30,13 @@ const createTweetElement = (tweetData) => {
 function renderTweets(tweets) {
   $('#tweets-container').children().remove();
   tweets.forEach (function (tweet) {
+    console.log(tweet);
     var $tweet = createTweetElement(tweet);
     $('#tweets-container').append($tweet);
+    $('#like-'+tweet._id).click(() => {
+      console.log(tweet._id);
+      $('#like-'+tweet._id).toggleClass('liked');
+    });
   });
 }
 
@@ -46,18 +51,6 @@ function loadTweets () {
     }
   })
 }
-
-// function login () {
-//   let templateVars = {
-//       user: users[req.session.user_id]
-//     }
-//   $.get({
-//     url: '/login',
-//     success: (data) => {
-//       res.render(login);
-//     }
-//   });
-// }
 
 $(document).ready(() => {
   $('.new-tweet').hide();
