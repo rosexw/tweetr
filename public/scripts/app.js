@@ -19,9 +19,9 @@ const createTweetElement = (tweetData) => {
     <footer>
       <span class="date">${diffHours} hours ago  </span>
       <span class="icons">
-        <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
-        <i class="fa fa-retweet fa-lg" aria-hidden="true"></i>
-        <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
+        <i name="flag" class="fa fa-flag fa-lg" aria-hidden="true"></i>
+        <i name="retweet" class="fa fa-retweet fa-lg" aria-hidden="true"></i>
+        <i name="heart" class="fa fa-heart fa-lg" aria-hidden="true"></i>
       </span>
     </footer>
   </article>`);
@@ -46,6 +46,18 @@ function loadTweets () {
     }
   })
 }
+
+// function login () {
+//   let templateVars = {
+//       user: users[req.session.user_id]
+//     }
+//   $.get({
+//     url: '/login',
+//     success: (data) => {
+//       res.render(login);
+//     }
+//   });
+// }
 
 $(document).ready(() => {
   $('.new-tweet').hide();
@@ -84,9 +96,7 @@ $(document).ready(() => {
       //after the new tweet is submitted, the text area is cleared and the counter is reset to 140.
       $(".new-tweet textarea").val("");
       $(".counter").html(140);
-
     }
-
   });
   loadTweets();
 });
